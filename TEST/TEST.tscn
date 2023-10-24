@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://bueuquuecuqkr"]
+
+[ext_resource type="PackedScene" uid="uid://vpmtiyd5ufws" path="res://Finite State Machine/StateMachineHead.res" id="1_h5ck0"]
+[ext_resource type="Texture2D" uid="uid://b6ebf7wlxatse" path="res://icon.svg" id="2_akv22"]
+[ext_resource type="Script" path="res://TEST/Color.gd" id="3_dqvfj"]
+
+[node name="State Machine Head" node_paths=PackedStringArray("_initial_state") instance=ExtResource("1_h5ck0")]
+_initial_state = NodePath("Red")
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+position = Vector2(337, 214)
+texture = ExtResource("2_akv22")
+
+[node name="Red" type="Node" parent="." index="1" node_paths=PackedStringArray("_sprite", "_next")]
+script = ExtResource("3_dqvfj")
+_color = Color(1, 0, 0, 1)
+_sprite = NodePath("../Sprite2D")
+_next = NodePath("../Green")
+
+[node name="Green" type="Node" parent="." index="2" node_paths=PackedStringArray("_sprite", "_next")]
+script = ExtResource("3_dqvfj")
+_color = Color(0, 1, 0, 1)
+_sprite = NodePath("../Sprite2D")
+_next = NodePath("../Blue")
+
+[node name="Blue" type="Node" parent="." index="3" node_paths=PackedStringArray("_sprite", "_next")]
+script = ExtResource("3_dqvfj")
+_color = Color(0, 0, 1, 1)
+_sprite = NodePath("../Sprite2D")
+_next = NodePath("../Red")
