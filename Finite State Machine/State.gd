@@ -10,11 +10,11 @@ func exit() -> void:
 	pass
 
 # Run this state's actions
-func update(delta: float) -> void:
+func update(_delta: float) -> void:
 	pass
 
 # Run this state's physics actions
-func physics_update(delta: float) -> void:
+func physics_update(_delta: float) -> void:
 	pass
 
 # Returns the next state to transition to
